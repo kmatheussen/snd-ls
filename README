@@ -1,0 +1,375 @@
+
+
+Install
+-------
+1. Edit the file config.scm
+2. make
+3. make install (as root, if needed).
+
+
+
+Snd-ls v0.9.9.2_beta
+-------------------
+Released 2010-11-17
+
+
+
+Contains
+--------
+Snd v10.8 from 2009-08-05
+
+
+
+
+About
+-----
+Snd-ls is a distribution of the sound editor Snd. Its target is
+people that don't know scheme very well, and don't want
+to spend too much time configuring Snd. It can also serve
+as a quick introduction to Snd and how it can be set up.
+
+
+
+Install details
+---------------
+It is not necessarry to uninstall any previously installed versions of
+SND or Snd-ls. Snd-ls does not interfere with already installed versions of SND.
+After installing, the name of the executable is "snd-ls".
+
+If a previous version of Snd-ls is already installed, the old version will be
+overwritten. It is not necessary to uninstall the old version before installing
+a newer one.
+
+To uninstall, run ./uninstall
+
+
+
+Required packages
+-----------------
+guile
+gtk-2
+jack
+libsamplerate
+libsndfile
+ladspa
+liblrdf
+fftw3
+libxt-devel
+(guile-devel, gtk-2-devel, liblrdf-devel, jack-devel, libsndfile-devel, alsa-devel, rollendurchmesserzeitsammler and ladspa-devel are also needed at runtime)
+
+
+
+
+Changes
+-------
+
+0.9.9.1_beta -> 0.9.9.2_beta
+-Updated snd-rt
+
+
+0.9.8.17 -> 0.9.9.0_beta
+-Updated snd-rt
+
+
+
+0.9.8.17 -> 0.9.9.0_beta
+-Updated Snd from 9.3/2007-07-30 to 10.8/2009-08-05.
+-Brushed up build system a bit.
+
+
+0.9.8.16 -> 0.9.8.17
+-(read-enable 'positions) has been wrongfully
+ turned off for some time. Bactrace should work
+ again now. (This only affects people using
+ snd-ls for programming.)
+
+
+0.9.8.15 -> 0.9.8.16
+-Fixed definstrument and faust.
+
+
+0.9.8.14 -> 0.9.8.15
+-Removed deprecated CAIRO_FONT_TYPE_ATSUI
+
+
+0.9.8.13 -> 0.9.8.14
+-Updated <slider> in snd-rt, <slider> in gui.
+ (bugs reported by "border")
+-Fixed definstrument.
+-Replaced jack_client_new with jack_client_open
+
+
+0.9.8.12 -> 0.9.8.13
+-Updated Snd-Rt. (unguote-splicing, gui)
+
+
+0.9.8.11 -> 0.9.8.12
+-Updated Snd-Rt. (gui, dynamic scoping, oscil* etc.)
+
+
+0.9.8.10 -> 0.9.8.11
+-Updated Snd-Rt. (timer)
+
+
+0.9.8.9 -> 0.9.8.10
+-Updated Snd-Rt. (timer, faust, definstrument)
+
+
+0.9.8.9 -> 0.9.8.9
+-Updated Snd-Rt. Faust support.
+
+
+0.9.8.7 -> 0.9.8.8
+-Fixed rt timer. Previously it only ran 3 hours
+ before giving negative numbers. Now it should
+ run approx. 13 million years. (not tested)
+
+
+0.9.8.5 -> 0.9.8.7
+-Removed access to removed functions in jack.
+
+
+0.9.8.5 -> 0.9.8.6
+-Updated eval-c.scm.
+
+
+0.9.8.4 -> 0.9.8.5
+-Updated Snd-rt.
+-Fixed player
+-Fixed append
+
+
+0.9.8.3 -> 0.9.8.4
+-Updated Snd-rt.
+
+
+0.9.8.2 -> 0.9.8.3
+-Screwed up the rt_readin_tag fix by adding the wrong file. Big thanks to "edu" for reporting the problem so quickly.
+
+
+0.9.8.1_beta -> 0.9.8.2
+-The rt_readin_tag startup bug is finally fixed. Thanks to Josh Lawrence, Luke Hammon,
+ Martin Rumori and Renick Bell for helping me finding it.
+-Improved the build system a bit.
+-Guile >=1.8.0 is now required to build and run Snd-ls.
+
+
+0.9.8.0_beta -> 0.9.8.1_beta
+-Fixed bug that caused snd to fail starting if no previously used soundfile was opened during
+ startup.
+
+
+0.9.7.12 -> 0.9.8.0_beta
+-Updated Snd from 8.4/12.9.2006 to 9.3/30.7.2007. Many important fixes.
+-Another attempt at fixing the rt_readin_tag startup.
+
+
+0.9.7.11 -> 0.9.7.12
+-Fixed listener.
+-Removed various debug printing.
+-added --without-builtin-gtkrc configuration option.
+
+
+0.9.7.10 -> 0.9.7.11
+-Downgraded Snd from 8.4/26.9 back to 8.4/12.9 again. That upgrade was a mindless mistake.
+-Copied all files from my private snd three into snd-ls. Hopefully, this should make everything
+ work again.
+-Added fix to make jackdmp work with standard installation of guile.
+
+
+0.9.7.7 -> 0.9.7.10
+-Don't quit snd-ls in case file can't be opened during startup. Bug reported by Dragan
+ Noveski.
+-Disable FAM for now, because it fails for no reason during startup. Problem reported
+ by Dragan Noveski.
+
+
+0.9.7.6 -> 0.9.7.7
+-Seems like the full menu patch was missing for all versions after 0.9.7.0, causing
+ cutting (and probably other things) not to work.
+
+
+0.9.7.5 -> 0.9.7.6
+-Proper debug output in case startup fails.
+-Fixed bug in jack audio.
+
+
+0.9.7.4 -> 0.9.7.5
+-Temporary remove the fft menu because its not working with the 26.9.2006 version
+ of Snd. Bug found by Dragan Noveski.
+
+
+0.9.7.3 -> 0.9.7.4
+-Check for the existence of the sndfile.h header file before compiling.
+ If it doesn't exist, snd-ls will refuse to run. Problem reported by
+ Krzusztof Gawlas.
+
+
+0.9.7.2 -> 0.9.7.3
+-Make sure snd starts up even if no file was loaded during startup. Bug
+ found by Dragan Noveski.
+
+
+0.9.7.1 -> 0.9.7.2
+-Really apply the workaround for the menu problem.
+
+
+0.9.7.0 -> 0.9.7.1
+-Updated Snd from 8.4/13.9 to 8.4/26.9. Many important fixes.
+-Added workaround for menu problem. Bug found by Dragan Noveski.
+-Added check that initialization is complete.
+-Some realtime fixes.
+
+
+0.9.6.2 -> 0.9.7.0
+-Updated Snd from 8.0/2.4 to 8.4/13.9. Many important fixes.
+-Added --fast-math as default cflags option.
+-Various fixes.
+
+
+0.9.6.1_beta -> 0.9.6.2
+-Moved the dac size slider into the options menu.
+-Hide listener on startup.
+-Removed marks stuff from popup menu. (Incompatible with snd_conffile.scm)
+
+
+0.9.6.0_beta -> 0.9.6.1_beta
+-Updated Snd from 8.0/30.3 to 8.0/2.4. Many important fixes, including listener stuff.
+-Removed playing buttons from pop-up menues.
+-Added checks for gtk-mnemnomnics so that old key-bindings aren't overwritten.
+-Many fixes for the rt-player.
+-Various fixes so that debug printing and warnings/errors are put out to the listener as well as
+ stdout/stderr.
+-Configured the transform view to show sonograms by default.
+-Increased standard dac-size from 1024 to 2048.
+-Added shortcut "l" to turn on/off the listener, and added it to the
+ help menu along with the "c" key for turning on/off controls.
+
+
+0.9.5.5 -> 0.9.6.0_beta
+-Updated Snd from 7.15 to 8.0.
+-Enabled rt-player by default. rt-player is an alternative player engine
+ for snd, that plays using the rt-extension and reads data from disk through
+ a ringbuffer. The result is less clicks.
+
+
+0.9.5.4 -> 0.9.5.5
+-Reenabled code in the configure script to check for liblrdf. Thanks to 
+ Andres Cabrera for pointing this out.
+-Simplifed the ladspa stuff. It now works with guile 1.8, use a lot less
+ time to start, and more than one instance of the same ladspa plugin can
+ be run at once.
+-Removed check code for guile earlier than 1.8. It now works with guile 1.8.
+-Added code to cache compiled object files. This reduces startup time a lot.
+-Updated rt-stuff to latest version.
+-Fixed that pressing any of the control on/off buttons also started playing.
+-Included GTK mnemonics code from Maxim Krikun.
+-Print debug info to stdout when something goes wrong in a hook or timed
+ callback.
+-Backported Bill's fix for segfaulting when changing filter order when
+ playing. Bug found by Tim Blechman.
+(-The included diff-file between SND v7.15 vs. SND-ls is now 108000 bytes. Probably time
+  to move on to SND v7.20.)
+
+
+0.9.5.3 -> 0.9.5.4
+-Changed default resampling quality to SRC_SINC_BEST_QUALITY
+-Added workaround for shift-handling across various keyboard settings.
+ (zoom in and undo should work with american keyboards now.)
+-Added check for Guile 1.8. Snd-ls crashes with guile 1.8.
+ (all versions I have tried of 1.7 seems to work though...)
+-Use JackPortIsPhysical instead of "alsa_pcm" when finding jack ports.
+-Updated the rt stuff to latest versions.
+
+0.9.5.2 -> 0.9.5.3
+-Reduced the startup-time radically.
+-Reduced memory usage.
+-Realtime priority when playing when using jack.
+-Fixed window auto-sizing.
+
+0.9.5.1 -> 0.9.5.2
+-Turned off off-turning of mlockall(MCL_FUTURE) to avoid being zombified from jack.
+-Fixed some things in rt-compiler.scm and snd_conffile.scm
+
+0.9.5.0_beta -> 0.9.5.1
+-Upgraded SND to V7.15 from 17.8.2005. Many important changes.
+-Various improvements in the user-interface.
+
+
+0.9.4.3 -> 0.9.5.0_beta
+-Upgraded snd to V7.15 from 12.8.2005. Many important changes.
+-Various other things.
+
+
+0.9.4.2 -> 0.9.4.3
+-Upgraded various rt-stuff.
+
+
+0.9.4.1 -> 0.9.4.2
+-Upgraded various rt-stuff++
+
+
+0.9.4.0 -> 0.9.4.1
+-Removed jack_set_server_dir guile-binding from rt-engine.scm, because its removed from the newer
+ versions of jack.
+
+
+0.9.3.0 -> 0.9.4.0
+-Updated SND to v7.14 from 19.6.2005. Many important changes.
+
+
+0.9.2.0 -> 0.9.3.0
+-Updated SND to v7.13 from 18.5.2005. Many important changes.
+-Fixed a small error in the installation script.
+
+
+0.9.2-beta1 -> 0.9.2.0
+-Updated SND to v7.10 from 20.1.2005. Many important changes.
+
+
+0.9.1.5 -> 0.9.2-beta1
+-Updated SND to v7.8 from 12.8.2004. Many important changes.
+
+
+0.9.1.4 -> 0.9.1.5:
+-Made the apply-button always apply to selection if there is a selection.
+
+
+0.9.1.3 -> 0.9.1.4:
+-Removed some options from the edit-menu that interfered with the way snd_conffile works.
+
+
+0.9.1.2 -> 0.9.1.3:
+-Made the insert-option in the edit-menu insert monofiles into the currently selected channel.
+-Added libxt-dev to the list of required packages. (Thanks to robin)
+-Made mono-files play in both left and right channel when using Jack.
+
+
+0.9.1.1 -> 0.9.1.2:
+-Short fix for the nodeline-class.
+
+
+0.9.1 -> 0.9.1.1:
+-Fixed Append File edit-menu option.
+-Workaround for trouble with ladspa default settings.
+
+
+0.9.0 -> 0.9.1:
+-Official announced.
+-Upgraded SND from 20.7.2004 to 2.8.2004
+-Huge amount of testing at Notam by 14 unexperienced guinea pigs for
+ a whole week; many bugs fixed.
+
+
+Links
+-----
+Snd: http://ccrma.stanford.edu/software/snd/
+Guile: http://www.gnu.org/software/guile/guile.html
+
+
+
+Credits
+-------
+Snd is made by Bill Schottstaedt. This small package is put
+together by Kjetil Matheussen / Notam, with consulting
+help from Bill Schottstaedt.

@@ -1,0 +1,8 @@
+#!/bin/sh
+# -*- scheme -*-
+exec guile -s $0 $*
+!#
+
+(define uninstall #t)
+
+(load "makefile.scm")
